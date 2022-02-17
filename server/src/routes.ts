@@ -1,7 +1,8 @@
 import { Express, Request, Response } from "express";
 import { createHandler } from "./controller/user.controller";
-import { createSessionHandler } from "./controller/session.controller";
+import { createSessionHandler, invalidateUserHandler } from "./controller/session.controller";
 import validate from './middleware/validate';
+import requiresUser from './middleware/requireUser';
 import { userSchema, loginSchema } from "./schema/user.schema";
 
 export default function (app: Express) {
@@ -14,4 +15,7 @@ export default function (app: Express) {
 
   // Login a user
   app.post('/login', validate(loginSchema), createSessionHandler);
+
+  // Logout
+  app.delete('/logout', requiresUser, invalidateUserHandler);
 }

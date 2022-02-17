@@ -37,4 +37,6 @@ const deserializeUser = async (req: Request, res: Response, next: NextFunction) 
   }
 
   return next();
-}
+};
+
+export default deserializeUser;

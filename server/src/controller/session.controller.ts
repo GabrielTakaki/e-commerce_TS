@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import log from "../logger";
+import { get } from "lodash";
 import { sign } from '../utils/jwt';
 import config from 'config';
-import { create, createAccessToken } from '../service/session.services';
+import { create, createAccessToken, updateSession } from '../service/session.services';
 import { validatePassword } from "../service/user.services";
 
 export const createSessionHandler = async (req: Request, res: Response) => {
@@ -29,4 +30,12 @@ export const createSessionHandler = async (req: Request, res: Response) => {
     log.error(e);
     return res.status(400).send(e.errors);
   }
+};
+
+export const invalidateUserHandler = async (req: Request, res: Response) => {
+  const sessionId = get(req, "user.session");
+
+  await updateSession({ _id: sessionId }, { valid: false });
+
+  return res.sendStatus(200);
 };

@@ -1,4 +1,4 @@
-import { LeanDocument } from 'mongoose';
+import { LeanDocument, FilterQuery, UpdateQuery } from 'mongoose';
 import { IUser } from "../model/user.model";
 import { decode, sign } from '../utils/jwt'
 import config from 'config'
@@ -56,3 +56,14 @@ export const reIssueAccessToken = async ({
 
   return accessToken;
 };
+
+export const updateSession = async (
+  query: FilterQuery<ISession>,
+  update: UpdateQuery<ISession>
+) => {
+  return Session.updateOne(query, update);
+}
+
+export const findSessions = async (query: FilterQuery<ISession>) => {
+  return Session.find(query).lean();
+}
