@@ -11,7 +11,11 @@ const validate = (schema: AnySchema) => async (req: Request, res: Response, next
     });
 
     return next();
+<<<<<<< HEAD
   } catch (e: any) {
+=======
+  } catch (e) {
+>>>>>>> 92ee5cbeddfe8cad3b8788f9b78e2a09fe37370f
     log.error(e);
     return res.status(400).send(e.errors);
   }
