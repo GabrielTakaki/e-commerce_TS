@@ -24,6 +24,7 @@ export const createSessionHandler = async (req: Request, res: Response) => {
       expiresIn: config.get('refreshTokenExpiration'),
     });
     
+    return res.send({ accessToken, refreshToken });
   } catch (e: any) {
     log.error(e);
     return res.status(400).send(e.errors);
