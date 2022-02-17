@@ -1,5 +1,5 @@
 import { DocumentDefinition } from 'mongoose';
-import omit from 'lodash/omit';
+import { omit } from 'lodash';
 import User, { IUser } from '../model/user.model';
 
 export const create = async (user: DocumentDefinition<IUser>) => {
@@ -27,6 +27,7 @@ export const validatePassword = async ({
     password: string;
   }) => {
     const user = await User.findOne({ email });
+
     if (!user) {
       throw new Error('User not found');
     }

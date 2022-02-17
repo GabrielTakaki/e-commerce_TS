@@ -10,22 +10,22 @@ export const create = async (userId: string, userAgent: string) => {
   return session.toJSON();
 };
 
-export const accessToken = ({
+export const createAccessToken = ({
   user,
   session,
 }: {
+  // Will expect a user with the password omited
   user:
-    // Will expect a user with the password omited
-    | Omit<IUser, 'password'>
+    | Omit<IUser, 'password' | string>
     | LeanDocument<Omit<IUser, 'password'>>;
   session:
     | Omit<ISession, 'password'>
     | LeanDocument<Omit<ISession, 'password'>>;
 }) => {
-  const token = sign(
+  const accessToken = sign(
     { ...user, session: session._id },
     { expiresIn: config.get('accessTokenExpiration') }
   );
 
-  return token;
+  return accessToken;
 }

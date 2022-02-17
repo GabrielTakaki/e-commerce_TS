@@ -4,12 +4,12 @@ import config from "config";
 
 export interface IUser extends mongoose.Document {
   email: string;
-  password: string;
-  comparePassword: (password: string) => Promise<boolean>;
   name: string;
+  password: string;
   role: string;
   createdAt: Date;
   updatedAt: Date;
+  comparePassword: (password: string) => Promise<boolean>;
 }
 
 const UserSchema = new mongoose.Schema({
