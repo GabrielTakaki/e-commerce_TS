@@ -36,7 +36,33 @@ const UserSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
+UserSchema.pre("save", async function (next) {
+  let user = this as IUser;
 
-const User = mongoose.model('User', UserSchema);
+  // only hash the password if it has been modified (or is new)
+  if (!user.isModified("password")) return next();
+
+  // Random additional data
+  const salt = await bcrypt.genSalt(config.get("saltWorkFactor"));
+
+  const hash = await bcrypt.hashSync(user.password, salt);
+
+  // Replace the password with the hash
+  user.password = hash;
+
+  return next();
+});
+
+// Used for logging in
+UserSchema.methods.comparePassword = async function (
+  candidatePassword: string
+) {
+  const user = this as IUser;
+
+  return bcrypt.compare(candidatePassword, user.password).catch((e) => false);
+};
+
+
+const User = mongoose.model<IUser>('User', UserSchema);
 
 export default User;
