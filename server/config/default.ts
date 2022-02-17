@@ -4,7 +4,7 @@ export default {
   dbUri: 'mongodb://localhost:27017/nodejs-ts',
   saltWorkFactor: 10,
   refreshTokenExpiration: '30d',
-  accessTokenExpiration: '1h',
+  accessTokenExpiration: '15m',
   privateKey: `-----BEGIN RSA PRIVATE KEY-----
   MIICXQIBAAKBgQCou7+RIRv9seGmSENyUUQXDWgFjsuofJNFhoJZw30wxbAUJEzn
   DMs6JN/jNWxZU177iDFPVZXF1+qD8GrrlnKNVFuUVly+FmHFw+7r7y4NRt+tZk3b

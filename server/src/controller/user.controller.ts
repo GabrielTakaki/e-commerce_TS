@@ -12,12 +12,3 @@ export const createHandler = async (req: Request, res: Response) => {
     return res.status(409).send(e.message);
   }
 };
-
-export const createLogin = async (req: Request, res: Response) => {
-  try {
-    
-  } catch (e: any) {
-    log.error(e);
-    return res.status(409).send(e.message);
-  }
-}

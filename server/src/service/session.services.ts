@@ -1,8 +1,10 @@
 import { LeanDocument } from 'mongoose';
 import { IUser } from "../model/user.model";
-import { sign } from '../utils/jwt'
+import { decode, sign } from '../utils/jwt'
 import config from 'config'
 import Session, { ISession } from "../model/session.model";
+import { get } from 'lodash';
+import { find } from './user.services';
 
 export const create = async (userId: string, userAgent: string) => {
   const session = await Session.create({ user: userId, userAgent });
@@ -28,4 +30,29 @@ export const createAccessToken = ({
   );
 
   return accessToken;
-}
+};
+
+export const reIssueAccessToken = async ({
+  refreshToken,
+}: {
+  refreshToken: string;
+}) => {
+  // Decode the refresh token
+  const { decoded } = decode(refreshToken);
+
+  if (!decoded || !get(decoded, '_id')) return false;
+
+  // Get the session
+  const session = await Session.findById(get(decoded, '_id'));
+
+  // if session still valid
+  if (!session || !session?.valid) return false;
+
+  const user = await find({ _id: session.user });
+
+  if (!user) return false;
+
+  const accessToken = createAccessToken({ user, session });
+
+  return accessToken;
+};

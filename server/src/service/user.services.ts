@@ -1,4 +1,4 @@
-import { DocumentDefinition } from 'mongoose';
+import { DocumentDefinition, FilterQuery } from 'mongoose';
 import { omit } from 'lodash';
 import User, { IUser } from '../model/user.model';
 
@@ -11,13 +11,13 @@ export const create = async (user: DocumentDefinition<IUser>) => {
   }
 };
 
-// export const find = async (query: any) => {
-//   try {
-
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+export const find = async (query: FilterQuery<IUser>) => {
+  try {
+    return User.findOne(query).lean();
+  } catch (e: any) {
+    throw new Error(e);
+  }
+};
 
 export const validatePassword = async ({
     email,
