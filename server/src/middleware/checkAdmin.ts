@@ -4,11 +4,11 @@ import { Request, Response, NextFunction } from "express"
 const checkAdmin = (req: Request, res: Response, next: NextFunction) => {
   const user = get(req, "user");
 
-  console.log(user)
+  console.log(user);
 
-  // if (user.admin !== 'admin') {
-  //   return res.sendStatus(403);
-  // }
+  if (user.role !== 'admin') {
+    return res.sendStatus(403);
+  }
 
   return next();
 };

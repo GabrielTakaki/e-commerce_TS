@@ -14,7 +14,7 @@ export const createSessionHandler = async (req: Request, res: Response) => {
       return res.status(401).send('Invalid email or password');
     }
 
-    const session = await create(user._id, req.get('user-agent') || '');
+    const session = await create(user._id, user.role, req.get('user-agent') || '');
 
     const accessToken = createAccessToken({
       user,

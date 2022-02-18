@@ -3,6 +3,7 @@ import { IUser } from './user.model';
 
 export interface ISession extends mongoose.Document {
   user: IUser["_id"];
+  role: IUser["role"];
   valid: boolean;
   userAgent: string;
   createdAt: Date;
@@ -12,6 +13,10 @@ export interface ISession extends mongoose.Document {
 const SessionSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  role: {
+    type: mongoose.Schema.Types.String,
     ref: "User",
   },
   valid: {

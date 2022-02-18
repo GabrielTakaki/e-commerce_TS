@@ -25,6 +25,7 @@ export default function (app: Express) {
   app.post(
     '/products',
     requiresUser,
+    checkAdmin,
     validate(productSchema),
     createProductHandler
   );

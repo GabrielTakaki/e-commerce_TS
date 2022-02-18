@@ -8,6 +8,8 @@ const requiresUser = (req: Request, res: Response, next: NextFunction) => {
     return res.sendStatus(403);
   }
 
+  console.log(user);
+
   return next();
 };
 

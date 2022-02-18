@@ -6,8 +6,8 @@ import Session, { ISession } from "../model/session.model";
 import { get } from 'lodash';
 import { find } from './user.services';
 
-export const create = async (userId: string, userAgent: string) => {
-  const session = await Session.create({ user: userId, userAgent });
+export const create = async (userId: string, role: string, userAgent: string) => {
+  const session = await Session.create({ user: userId, role: role, userAgent });
 
   return session.toJSON();
 };
