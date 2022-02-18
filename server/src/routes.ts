@@ -1,11 +1,12 @@
 import { Express, Request, Response } from "express";
 import { createHandler } from "./controller/user.controller";
 import { createSessionHandler, invalidateUserHandler } from "./controller/session.controller";
-import { createProductHandler, listProductHandler } from "./controller/product.controller";
+import { createProductHandler, listProductHandler, updateProductHandler } from "./controller/product.controller";
 import validate from './middleware/validate';
 import checkAdmin from "./middleware/checkAdmin";''
 import requiresUser from './middleware/requireUser';
 import { userSchema, loginSchema, productSchema } from "./schema/user.schema";
+import multer from "./middleware/multer";
 
 export default function (app: Express) {
   app.get('/', (req: Request, res: Response) => {
@@ -27,7 +28,11 @@ export default function (app: Express) {
     requiresUser,
     checkAdmin,
     validate(productSchema),
+    multer.single('image'),
     createProductHandler
   );
+
   app.get('/products', listProductHandler);
+
+  app.put('/products/:id', requiresUser, checkAdmin, updateProductHandler);
 };

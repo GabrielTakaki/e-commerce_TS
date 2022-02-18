@@ -1,5 +1,6 @@
 import express from 'express';
 import config from 'config';
+import path from 'path';
 import log from './logger';
 import connect from './db/connect';
 import router from './routes';
@@ -13,6 +14,8 @@ app.use(deserializeUser);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+app.use('/uploads', express.static(path.resolve('uploads')));
 
 app.listen(port, host, () => {
   log.info(`Server is listening on ${host}:${port}`)
