@@ -1,10 +1,18 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Global } from './context';
+
+import Login from './screens/intials/Login';
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={
+        <Global.Provider>
+          <Login />
+        </Global.Provider>
+      } />
+    </Routes>
   );
 }
 
