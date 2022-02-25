@@ -8,6 +8,7 @@ export interface IUserRegister {
   role: string;
   name: string;
 };
+<<<<<<< HEAD
 
 export interface IUser {
   email: string;
@@ -29,3 +30,5 @@ export interface IContext {
   register: (email: string, password: string, role: string, name: string) => Promise<any>;
   getProducts: () => Promise<any>;
 }
+=======
+>>>>>>> bb0030b80ee3df9a5811d9c9e4b38ccc092a6ba1
