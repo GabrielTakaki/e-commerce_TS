@@ -7,18 +7,27 @@ const Context = createContext({})
 
 const Provider: React.FC<PropsContext> = ({ children }) => {
   const [user, setUser] = useState<IUserRegister[]>([]);
+
+  const register = async (email: string, password: string, role: string, name: string) => {
+    try {
+      const response = await axios.post('http://localhost:3001/users', { email, password, role, name });
+      setUser(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   
   const login = async (email: string, password: string, role: string, name: string) => {
     try {
-      const response = await axios.post('http://localhost:3001/register', { email, password, role, name });
-      setUser(response.data);
+      const response = await axios.post('http://localhost:3001/login', { email, password });
+      console.log(response)
     } catch (e) {
       console.log(e);
     }
   };
 
   return (
-    <Context.Provider value={ { login, user } }>
+    <Context.Provider value={ { login, user, register } }>
       {children}
     </Context.Provider>
   );
