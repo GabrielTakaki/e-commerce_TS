@@ -20,6 +20,8 @@ const Home = () => {
 
   const images = [
     { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG31.png' },
+    // { src: 'https://www.pngmart.com/files/15/Apple-iPhone-11-PNG-Image.png' },
+    // { src: 'https://www.transparentpng.com/thumb/-iphone-x/v8dHCT-apple-iphone.png' }
   ]
   return (
     <>
