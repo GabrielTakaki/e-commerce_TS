@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  background-color: transparent;
+  font-size: calc(0.5em + 0.5vw);
+  margin-top: calc(-0.5em + -0.5vw);
+}
+
+.header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 calc(0.5em + 0.5vw);
+}
+
+.header__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.header__li {
+  margin-right: calc(0.5em + 0.5vw);
+  cursor: pointer;
+}
+
+.header__title {
+  font-size: calc(1em + 1vw);
+}
+
+.header__li:nth-child(3), .header__li:nth-child(4) {
+  border: 1px solid #fff;
+  padding: 4px calc(0.8em + 0.8vw);
+  border-radius: 10px;
+}
+
+.header__li:nth-child(3):hover, .header__li:nth-child(4):hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.header__li:nth-child(4) {
+  margin-right: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+/*# sourceMappingURL=style.css.map */
