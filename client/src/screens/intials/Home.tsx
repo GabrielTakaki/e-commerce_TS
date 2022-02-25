@@ -3,11 +3,11 @@ import '../../styles/style.css';
 import { Global } from '../../context';
 import Header from '../../components/Header';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// import Swiper core and required modules
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { BsCart3 } from 'react-icons/bs';
 
 // import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 const Home = () => {
   const { getProducts, products } = useContext(Global.Context);
@@ -23,7 +23,8 @@ const Home = () => {
     <>
       <Header />
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        className="swiper"
+        lazy={true}
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
       >
@@ -33,10 +34,9 @@ const Home = () => {
                 <SwiperSlide className="section">
                   <img className="section__image" src={ image.src } alt="iphone" />
                   <h1 className="section__title">{product.name}</h1>
-                  <p className="section__desc">{product.description}</p>
-                  <p className="section__price">{product.price}</p>
-                  <button>
-                    Buy Now
+                  <button className="section__button">
+                    <span className="section__span">Buy Now</span>
+                    <BsCart3 className="section__icon" />
                   </button>
                 </SwiperSlide>
               ))

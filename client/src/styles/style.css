@@ -10,15 +10,49 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   color: #fff;
+  margin-top: calc(1em + 1vw);
 }
 
 .section__image {
-  width: 30%;
+  width: 25%;
+}
+
+.section__button {
+  border: none;
+  width: calc(5em + 5vw);
+  height: calc(1.5em + 1.5vw);
+  background-color: #d58b01;
+  border-radius: 20px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section__button:hover {
+  background-color: rgba(213, 139, 1, 0.8);
+}
+
+.section__span {
+  font-size: calc(0.6em + 0.6vw);
+}
+
+.section__icon {
+  height: calc(0.6em + 0.6vw);
+  width: calc(0.6em + 0.6vw);
+}
+
+.swiper {
+  margin-top: 5%;
 }
 
 .header {
