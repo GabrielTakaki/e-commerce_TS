@@ -52,7 +52,25 @@
 }
 
 .swiper {
-  margin-top: 5%;
+  margin-top: 10%;
+}
+
+@media screen and (max-width: 850px) {
+  .swiper {
+    margin-top: 20%;
+  }
+  .section__image {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .swiper {
+    margin-top: 40%;
+  }
+  .section__image {
+    width: 30%;
+  }
 }
 
 .header {
