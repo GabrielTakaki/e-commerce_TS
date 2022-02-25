@@ -1,12 +1,13 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { PropsContext, IUserRegister } from '../interfaces';
+import { PropsContext, IUserRegister, IProducts, IContext } from '../interfaces';
 import axios from 'axios';
 
-const Context = createContext({})
+const Context = createContext<IContext>({} as IContext);
 
 const Provider: React.FC<PropsContext> = ({ children }) => {
   const [user, setUser] = useState<IUserRegister[]>([]);
+  const [products, setProducts] = useState<IProducts[]>([]);
 
   const register = async (email: string, password: string, role: string, name: string) => {
     try {
@@ -17,7 +18,7 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
     }
   };
   
-  const login = async (email: string, password: string, role: string, name: string) => {
+  const login = async (email: string, password: string) => {
     try {
       const response = await axios.post('http://localhost:3001/login', { email, password });
       console.log(response)
@@ -26,8 +27,17 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
     }
   };
 
+  const getProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/products');
+      setProducts(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
-    <Context.Provider value={ { login, user, register } }>
+    <Context.Provider value={ { login, user, register, getProducts, products } }>
       {children}
     </Context.Provider>
   );
