@@ -1,4 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap");
+.section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+}
+
+.section__image {
+  width: 30%;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -19,7 +41,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 calc(0.5em + 0.5vw);
+  margin: 0 calc(0.9em + 0.9vw);
 }
 
 .header__ul {
@@ -37,7 +59,7 @@
 }
 
 .header__li {
-  margin-right: calc(0.5em + 0.5vw);
+  margin-right: calc(0.9em + 0.9vw);
   cursor: pointer;
 }
 

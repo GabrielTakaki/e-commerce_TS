@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 calc(0.5em + 0.5vw);
+    margin: 0 calc(0.9em + 0.9vw);
   }
 
   &__ul {
@@ -23,7 +23,7 @@
   }
 
   &__li {
-    margin-right: calc(0.5em + 0.5vw);
+    margin-right: calc(0.9em + 0.9vw);
     cursor: pointer;
   }
 
