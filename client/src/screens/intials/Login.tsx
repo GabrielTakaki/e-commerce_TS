@@ -31,7 +31,10 @@ const Login: React.FC = () => {
             onChange={ (e) => setPassword(e.target.value) }
           />
         </label>
-        <button className="login__button" type="button">Login</button>
+        <div className="buttons"></div>
+        <button className="buttons__login" type="button">Login</button>
+        <span className="buttons__span">Or</span>
+        <button className="buttons__register" type="button">Register</button>
       </form>
       <img src="https://www.pngmart.com/files/11/E-Commerce-PNG-Free-Download.png" alt="e-commerce" className="login__img" />
     </div>

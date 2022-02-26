@@ -63,17 +63,29 @@
     border-bottom: 1px solid #fff;
   }
 
-  &__button {
+}
+
+.buttons {
+  display: flex;
+  color: #fff;
+  margin-top: 25px;
+
+  &__span {
+    font-size: calc(0.6em + 0.6vw);
+    margin: 0 10px;
+    color: #fff;
+  }
+
+  &__login, &__register {
     background-color: transparent;
     border: 1px solid #fff;
     color: #fff;
     align-self: flex-start;
-    margin-left: 10px;
-    margin-top: 20px;
     font-size: calc(0.5em + 0.5vw);
     cursor: pointer;
     padding: 6px 35px;
     border-radius: 10px;
+    margin: 0 10px;
 
     &:hover {
       background-color: #fff;

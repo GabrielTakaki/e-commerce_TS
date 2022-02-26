@@ -154,21 +154,34 @@
   border-bottom: 1px solid #fff;
 }
 
-.login__button {
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  margin-top: 25px;
+}
+
+.buttons__span {
+  font-size: calc(0.6em + 0.6vw);
+  margin: 0 10px;
+  color: #fff;
+}
+
+.buttons__login, .buttons__register {
   background-color: transparent;
   border: 1px solid #fff;
   color: #fff;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-left: 10px;
-  margin-top: 20px;
   font-size: calc(0.5em + 0.5vw);
   cursor: pointer;
   padding: 6px 35px;
   border-radius: 10px;
+  margin: 0 10px;
 }
 
-.login__button:hover {
+.buttons__login:hover, .buttons__register:hover {
   background-color: #fff;
   color: #000;
 }
