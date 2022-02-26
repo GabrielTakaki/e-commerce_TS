@@ -90,16 +90,44 @@
           justify-content: center;
 }
 
+.greeting {
+  color: #fff;
+  opacity: 0.6;
+  position: fixed;
+  top: 100px;
+  left: 50px;
+}
+
+.greeting__greet {
+  font-size: calc(0.8em + 0.8vw);
+  font-weight: bold;
+}
+
+.greeting__title {
+  font-size: calc(1em + 1vw);
+}
+
 .login {
   width: 70%;
   max-width: 800px;
-  height: 200px;
+  height: 280px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   border: 1px solid #fff;
   opacity: 0.5;
   padding: 10px;
+}
+
+.login__img {
+  display: none;
+}
+
+.login__title {
+  color: white;
+  font-size: calc(0.8em + 0.8vw);
+  margin: 0;
+  text-align: center;
 }
 
 .login__label {
@@ -126,11 +154,41 @@
   border-bottom: 1px solid #fff;
 }
 
+.login__button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: calc(0.5em + 0.5vw);
+  cursor: pointer;
+  padding: 6px 35px;
+  border-radius: 10px;
+}
+
+.login__button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
 @media screen and (min-width: 750px) {
   .login {
     -ms-flex-item-align: start;
         align-self: flex-start;
     margin-left: 40px;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .login__img {
+    position: absolute;
+    display: block;
+    right: 20px;
+    width: 40%;
+    height: 50%;
+    opacity: 0.6;
   }
 }
 

@@ -6,14 +6,43 @@
   justify-content: center;
 }
 
+.greeting {
+  color: #fff;
+  opacity: 0.6;
+  position: fixed;
+  top: 100px;
+  left: 50px;
+
+  &__greet {
+    font-size: calc(0.8em + 0.8vw);
+    font-weight: bold;
+  }
+
+  &__title {
+    font-size: calc(1em + 1vw);
+  }
+
+}
+
 .login {
   width: 70%;
   max-width: 800px;
-  height: 200px;
+  height: 280px;
   align-self: center;
   border: 1px solid #fff;
   opacity: 0.5;
   padding: 10px;
+
+  &__img {
+    display: none;
+  }
+
+  &__title {
+    color: white;
+    font-size: calc(0.8em + 0.8vw);
+    margin: 0;
+    text-align: center;
+  }
 
   &__label {
     display: flex;
@@ -33,6 +62,24 @@
     width: 100%;
     border-bottom: 1px solid #fff;
   }
+
+  &__button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    align-self: flex-start;
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: calc(0.5em + 0.5vw);
+    cursor: pointer;
+    padding: 6px 35px;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #fff;
+      color: #000;
+    }
+  }
 }
 
 @media screen and (min-width: 750px) {
@@ -40,4 +87,16 @@
     align-self: flex-start;
     margin-left: 40px;
   }
+}
+
+@media screen and (min-width:1550px) {
+  .login__img {
+    position: absolute;
+    display: block;
+    right: 20px;
+    width: 40%;
+    height: 50%;
+    opacity: 0.6;
+  }
+  
 }
