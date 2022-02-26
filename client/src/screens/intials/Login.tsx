@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   return (
     <div className="container-login">
       <div className="greeting">
@@ -34,7 +37,7 @@ const Login: React.FC = () => {
         <div className="buttons"></div>
         <button className="buttons__login" type="button">Login</button>
         <span className="buttons__span">Or</span>
-        <button className="buttons__register" type="button">Register</button>
+        <button className="buttons__register" type="button" onClick={ () => navigate('/register') }>Register</button>
       </form>
       <img src="https://www.pngmart.com/files/11/E-Commerce-PNG-Free-Download.png" alt="e-commerce" className="login__img" />
     </div>
