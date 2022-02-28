@@ -15,7 +15,7 @@ const Login: React.FC = () => {
       <form className="login">
         <p className="login__title">Login</p>
         <label htmlFor="email" className="login__label">
-          email
+          <span className="login__span">Email:</span>
           <input
             className="login__input"
             type="email"
@@ -25,7 +25,7 @@ const Login: React.FC = () => {
           />
         </label>
         <label htmlFor="password" className="login__label">
-          password
+        <span className="login__span">Password:</span>
           <input
             className="login__input"
             type="password"

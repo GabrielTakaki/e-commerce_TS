@@ -64,6 +64,11 @@
     outline: none;
     border-bottom: 1px solid #fff;
     color: #fff;
+    opacity: 0.6;
+
+    &:focus {
+      opacity: 1;
+    }
   }
 
 }

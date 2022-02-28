@@ -177,6 +177,15 @@
   outline: none;
   border-bottom: 1px solid #fff;
   color: #fff;
+  opacity: 0.6;
+}
+
+.login__input:focus {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
 }
 
 .buttons {
