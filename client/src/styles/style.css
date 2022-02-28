@@ -17,8 +17,30 @@
   margin-top: calc(1em + 1vw);
 }
 
+.section__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  height: 50%;
+}
+
 .section__image {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   width: 25%;
+  height: 70%;
 }
 
 .section__button {
@@ -155,6 +177,15 @@
   outline: none;
   border-bottom: 1px solid #fff;
   color: #fff;
+  opacity: 0.6;
+}
+
+.login__input:focus {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
 }
 
 .buttons {
@@ -204,7 +235,7 @@
     right: 20px;
     width: 40%;
     height: 50%;
-    opacity: 0.6;
+    opacity: 0.7;
   }
 }
 

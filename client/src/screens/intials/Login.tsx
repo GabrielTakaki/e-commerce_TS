@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Global } from '../../context';
 import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useContext(Global.Context);
 
   return (
     <div className="container-login">
@@ -15,7 +17,7 @@ const Login: React.FC = () => {
       <form className="login">
         <p className="login__title">Login</p>
         <label htmlFor="email" className="login__label">
-          email
+          <span className="login__span">Email:</span>
           <input
             className="login__input"
             type="email"
@@ -25,7 +27,7 @@ const Login: React.FC = () => {
           />
         </label>
         <label htmlFor="password" className="login__label">
-          password
+        <span className="login__span">Password:</span>
           <input
             className="login__input"
             type="password"
@@ -35,7 +37,7 @@ const Login: React.FC = () => {
           />
         </label>
         <div className="buttons"></div>
-        <button className="buttons__login" type="button">Login</button>
+        <button className="buttons__login" type="button" onClick={ () => login(email, password) }>Login</button>
         <span className="buttons__span">Or</span>
         <button className="buttons__register" type="button" onClick={ () => navigate('/register') }>Register</button>
       </form>
