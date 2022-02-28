@@ -36,10 +36,11 @@ const Login: React.FC = () => {
             onChange={ (e) => setPassword(e.target.value) }
           />
         </label>
-        <div className="buttons"></div>
-        <button className="buttons__login" type="button" onClick={ () => login(email, password) }>Login</button>
-        <span className="buttons__span">Or</span>
-        <button className="buttons__register" type="button" onClick={ () => navigate('/register') }>Register</button>
+        <div className="buttons">
+          <button className="buttons__login" type="button" onClick={ () => login(email, password) }>Login</button>
+          <span className="buttons__span">Or</span>
+          <button className="buttons__register" type="button" onClick={ () => navigate('/register') }>Register</button>
+        </div>
       </form>
       <img src="https://www.pngmart.com/files/11/E-Commerce-PNG-Free-Download.png" alt="e-commerce" className="login__img" />
     </div>

@@ -1,3 +1,5 @@
+// Some classes are being shared with _Login.scss
+
 .container-login {
   display: flex;
   height: 100vh;
@@ -10,7 +12,7 @@
   color: #fff;
   opacity: 0.6;
   position: fixed;
-  top: 100px;
+  top: 5%;
   left: 50px;
 
   &__greet {
@@ -27,11 +29,10 @@
 .login {
   width: 70%;
   max-width: 800px;
-  height: 280px;
   align-self: center;
   border: 1px solid #fff;
   opacity: 0.5;
-  padding: 10px;
+  padding: 20px;
 
   &__img {
     display: none;
@@ -106,6 +107,12 @@
   .login {
     align-self: flex-start;
     margin-left: 40px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .login {
+    border: none;
   }
 }
 
