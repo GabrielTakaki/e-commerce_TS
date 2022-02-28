@@ -19,32 +19,39 @@ const Home = () => {
   }, []);
 
   const images = [
-    { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG31.png' },
-    // { src: 'https://www.pngmart.com/files/15/Apple-iPhone-11-PNG-Image.png' },
-    // { src: 'https://www.transparentpng.com/thumb/-iphone-x/v8dHCT-apple-iphone.png' }
-  ]
+    { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG29.png' },
+    { src: 'https://www.pngmart.com/files/15/Apple-iPhone-11-PNG-Picture.png' },
+    { src: 'https://www.freeiconspng.com/uploads/new-iphone-x-photo-18.png' }
+  ];
+
+  const productWithImage = products && products.map((item, idx) => ({
+    ...item,
+    image: images[idx]
+  }));
+
   return (
     <>
       <Header />
       <Swiper
+          autoplay={{
+            delay: 2000,
+          disableOnInteraction: false,
+        }}
         loop={true}
         speed={900}
-        autoplay={{
-          delay: 2000,
-        disableOnInteraction: false,
-      }}>
+        >
         {
-          products && products.map((product, index) => index < 3 && (
-              images.map((image, index) => (
-                <SwiperSlide className="section">
-                  <img className="section__image" src={ image.src } alt="iphone" />
+          productWithImage && productWithImage.map((product, index) => index < 3 && (
+              <SwiperSlide className="section">
+                <div className="section__card">
+                  <img className="section__image" src={ product.image.src } alt="iphone" />
                   <h1 className="section__title">{product.name}</h1>
                   <button className="section__button">
                     <span className="section__span">Buy Now</span>
                     <BsCart3 className="section__icon" />
                   </button>
-                </SwiperSlide>
-              ))
+                </div>
+              </SwiperSlide>
           ))
         }
       </Swiper>
