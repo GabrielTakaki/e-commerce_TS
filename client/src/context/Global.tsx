@@ -8,6 +8,7 @@ const Context = createContext<IContext>({} as IContext);
 const Provider: React.FC<PropsContext> = ({ children }) => {
   const [user, setUser] = useState<IUserRegister[]>([]);
   const [products, setProducts] = useState<IProducts[]>([]);
+  const [loginData, setLoginData] = useState([]);
 
   const register = async (email: string, password: string, role: string, name: string) => {
     try {
@@ -21,7 +22,8 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post('http://localhost:3001/login', { email, password });
-      console.log(response)
+      console.log(response.data);
+      setLoginData(response.data);
     } catch (e) {
       console.log(e);
     }
@@ -37,7 +39,7 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
   }
 
   return (
-    <Context.Provider value={ { login, user, register, getProducts, products } }>
+    <Context.Provider value={ { login, user, register, getProducts, products, loginData } }>
       {children}
     </Context.Provider>
   );
