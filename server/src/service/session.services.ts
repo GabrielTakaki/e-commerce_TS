@@ -39,7 +39,7 @@ export const reIssueAccessToken = async ({
 }) => {
   // Decode the refresh token
   const { decoded } = decode(refreshToken);
-
+  
   if (!decoded || !get(decoded, '_id')) return false;
 
   // Get the session

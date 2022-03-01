@@ -4,9 +4,9 @@ import { decode } from '../utils/jwt';
 import { reIssueAccessToken } from "../service/session.services";
 
 const deserializeUser = async (req: Request, res: Response, next: NextFunction) => {
-  const accessToken = get(req, 'headers.authorization', '').replace(/^Bearer\s/, '');
+  const accessToken = req.cookies['accessToken'];
 
-  const refreshToken = get(req, 'headers.x-refresh');
+  const refreshToken = req.cookies['refreshToken'];
 
   if (!accessToken) {
     return next();
@@ -23,6 +23,7 @@ const deserializeUser = async (req: Request, res: Response, next: NextFunction) 
 
   if (expired && refreshToken) {
     const newAccess = await reIssueAccessToken({ refreshToken });
+    console.log(req.cookies);
 
     if (newAccess) {
       res.setHeader('x-access-token', newAccess);

@@ -22,8 +22,8 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
   
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:3001/login', { email, password });
-      console.log(response.data);
+      const response = await axios.post('http://localhost:3001/login', { email, password }, { withCredentials: true });
+      console.log(response);
       setLoginData(response.data);
     } catch (e) {
       console.log(e);

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import log from "../logger";
+import dayjs from "dayjs";
 import { get } from "lodash";
 import { sign } from '../utils/jwt';
 import config from 'config';
@@ -25,7 +26,21 @@ export const createSessionHandler = async (req: Request, res: Response) => {
       expiresIn: config.get('refreshTokenExpiration'),
     });
     
-    return res.send({ accessToken, refreshToken });
+    // return res.send({ accessToken, refreshToken });
+    console.log('oi');
+    return res.status(200).cookie('accessToken', accessToken, {
+      secure: true,
+      sameSite: 'none',
+      httpOnly: true,
+      // overwrite: true,
+      expires: dayjs().add(7, 'day').toDate(),
+    }).cookie('refreshToken', refreshToken, {
+      secure: true,
+      sameSite: 'none',
+      httpOnly: true,
+      // overwrite: true,
+      expires: dayjs().add(7, 'day').toDate(),
+    }).json({ accessToken, refreshToken });
   } catch (e: any) {
     log.error(e);
     return res.status(400).send(e.errors);

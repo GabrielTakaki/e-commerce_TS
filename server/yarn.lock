@@ -95,6 +95,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookie-parser@^1.4.2":
+  "integrity" "sha512-uwcY8m6SDQqciHsqcKDGbo10GdasYsPCYkH3hVegj9qAah6pX5HivOnOuI3WYmyQMnOATV39zv/Ybs0bC/6iVg=="
+  "resolved" "https://registry.npmjs.org/@types/cookie-parser/-/cookie-parser-1.4.2.tgz"
+  "version" "1.4.2"
+  dependencies:
+    "@types/express" "*"
+
 "@types/cors@^2.8.12":
   "integrity" "sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw=="
   "resolved" "https://registry.npmjs.org/@types/cors/-/cors-2.8.12.tgz"
@@ -109,7 +116,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@^4.17.13":
+"@types/express@*", "@types/express@^4.17.13":
   "integrity" "sha512-6bSZTPaTIACxn48l50SR+axgrqm6qXFIxrdAKaG6PaJk3+zuUr35hBlgT7vOmJcum+OEaIBLtHV/qloEAFITeA=="
   "resolved" "https://registry.npmjs.org/@types/express/-/express-4.17.13.tgz"
   "version" "4.17.13"
@@ -559,10 +566,23 @@
   "resolved" "https://registry.npmjs.org/content-type/-/content-type-1.0.4.tgz"
   "version" "1.0.4"
 
+"cookie-parser@^1.4.6":
+  "integrity" "sha512-z3IzaNjdwUC2olLIB5/ITd0/setiaFMLYiZJle7xg5Fe9KWAceil7xszYfHHBtDFYLSgJduS2Ty0P1uJdPDJeA=="
+  "resolved" "https://registry.npmjs.org/cookie-parser/-/cookie-parser-1.4.6.tgz"
+  "version" "1.4.6"
+  dependencies:
+    "cookie" "0.4.1"
+    "cookie-signature" "1.0.6"
+
 "cookie-signature@1.0.6":
   "integrity" "sha1-4wOogrNCzD7oylE6eZmXNNqzriw="
   "resolved" "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
   "version" "1.0.6"
+
+"cookie@0.4.1":
+  "integrity" "sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA=="
+  "resolved" "https://registry.npmjs.org/cookie/-/cookie-0.4.1.tgz"
+  "version" "0.4.1"
 
 "cookie@0.4.2":
   "integrity" "sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA=="
@@ -592,10 +612,10 @@
   "resolved" "https://registry.npmjs.org/dateformat/-/dateformat-4.6.3.tgz"
   "version" "4.6.3"
 
-"dayjs@^1.10.7":
-  "integrity" "sha512-P6twpd70BcPK34K26uJ1KT3wlhpuOAPoMwJzpsIWUxHZ7wpmbdZL/hQqBDfz7hGurYSa5PhzdhDHtt319hL3ig=="
-  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.7.tgz"
-  "version" "1.10.7"
+"dayjs@^1.10.8":
+  "integrity" "sha512-wbNwDfBHHur9UOzNUjeKUOJ0fCb0a52Wx0xInmQ7Y8FstyajiV1NmK1e00cxsr9YrE9r7yAChE0VvpuY5Rnlow=="
+  "resolved" "https://registry.npmjs.org/dayjs/-/dayjs-1.10.8.tgz"
+  "version" "1.10.8"
 
 "debug@^3.2.7":
   "integrity" "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ=="

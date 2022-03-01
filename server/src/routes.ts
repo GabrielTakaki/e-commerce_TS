@@ -3,6 +3,7 @@ import { createHandler } from "./controller/user.controller";
 import { createSessionHandler, invalidateUserHandler } from "./controller/session.controller";
 import { createProductHandler, listProductHandler, updateProductHandler } from "./controller/product.controller";
 import validate from './middleware/validate';
+import deserializeUser from './middleware/deserializeUser';
 import checkAdmin from "./middleware/checkAdmin";''
 import requiresUser from './middleware/requireUser';
 import { userSchema, loginSchema, productSchema } from "./schema/user.schema";
