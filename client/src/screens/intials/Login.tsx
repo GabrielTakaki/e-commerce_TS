@@ -1,12 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Global } from '../../context';
 import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [infoErr, setInfoErr] = useState<boolean>(false);
+  const [click, setClick] = useState<boolean>(false);
   const navigate = useNavigate();
   const { login } = useContext(Global.Context);
+
+  useEffect(() => {
+    if (click) {
+      if (!email || !password) {
+        setInfoErr(true);
+      } else {
+        login(email, password);
+        // navigate('/');
+      }
+    }
+  }, [email, password, click])
 
   return (
     <div className="container-login">
@@ -35,9 +48,17 @@ const Login: React.FC = () => {
             value={ password }
             onChange={ (e) => setPassword(e.target.value) }
           />
+          {
+            !infoErr ? null
+            : <span
+                className="login__error"
+              >
+                Fill in the fileds with valid data
+              </span>
+          }
         </label>
         <div className="buttons">
-          <button className="buttons__login" type="button" onClick={ () => login(email, password) }>Login</button>
+          <button className="buttons__login" type="button" onClick={ () => setClick(true) }>Login</button>
           <span className="buttons__span">Or</span>
           <button className="buttons__register" type="button" onClick={ () => navigate('/register') }>Register</button>
         </div>
