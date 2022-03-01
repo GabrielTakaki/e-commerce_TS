@@ -42,7 +42,7 @@ const Home = () => {
         >
         {
           productWithImage && productWithImage.map((product, index) => index < 3 && (
-              <SwiperSlide className="section">
+              <SwiperSlide className="section" key={ index }>
                 <div className="section__card">
                   <img className="section__image" src={ product.image.src } alt="iphone" />
                   <h1 className="section__title">{product.name}</h1>

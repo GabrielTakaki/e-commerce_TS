@@ -1,13 +1,37 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Global } from '../../context';
 import { useNavigate } from 'react-router-dom';
 
 const Register: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [registerForm, setRegisterForm] = useState({ email: '', password: '', name: '', role: 'user' });
+  const [click, setClick] = useState(false);
+  const [infoErr, setInfoErr] = useState(false);
   const navigate = useNavigate();
-  const { login } = useContext(Global.Context);
+  const { register } = useContext(Global.Context);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setRegisterForm({ ...registerForm, [name]: value });
+  };
+
+  useEffect(() => {
+    const { email, password, name, role } = registerForm;
+    const passwordMinLength = 6;
+    const userMinLength = 12;
+    const Patt = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+    const validEmail = Patt.test(email)
+    const validPsw = password.length >= passwordMinLength;
+    const validName = name.length >= userMinLength;
+
+    if (click) {
+      if (!validEmail || !validPsw || !validName) {
+        setInfoErr(true);
+      } else {
+        register(email, password, role, name);
+        navigate('/login');
+      }
+    }
+  }, [registerForm, click]);
 
   return (
     <div className="container-login">
@@ -23,8 +47,8 @@ const Register: React.FC = () => {
             className="login__input"
             type="name"
             name="name"
-            value={ name }
-            onChange={ (e) => setName(e.target.value) }
+            value={ registerForm.name }
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="email" className="login__label">
@@ -33,8 +57,8 @@ const Register: React.FC = () => {
             className="login__input"
             type="email"
             name="email"
-            value={ email }
-            onChange={ (e) => setEmail(e.target.value) }
+            value={ registerForm.email }
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="password" className="login__label">
@@ -43,12 +67,26 @@ const Register: React.FC = () => {
             className="login__input"
             type="password"
             name="password"
-            value={ password }
-            onChange={ (e) => setPassword(e.target.value) }
+            value={ registerForm.password }
+            onChange={ handleChange }
           />
+          {
+            !infoErr ? null
+            : <span
+                className="login__error"
+              >
+                Fill in the fileds with valid data
+              </span>
+          }
         </label>
         <div className="buttons">
-          <button className="buttons__register" type="button">Register</button>
+          <button
+            className="buttons__register"
+            type="button"
+            onClick={ () => setClick(true) }
+          >
+            Register
+          </button>
           <span className="buttons__span">Or</span>
           <button className="buttons__login" type="button" onClick={ () => navigate('/login') }>Login</button>
         </div>

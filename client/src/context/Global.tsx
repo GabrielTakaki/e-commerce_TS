@@ -14,6 +14,7 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
     try {
       const response = await axios.post('http://localhost:3001/users', { email, password, role, name });
       setUser(response.data);
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }

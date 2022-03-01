@@ -240,6 +240,11 @@
   }
 }
 
+.login__error {
+  color: red;
+  margin-top: 15px;
+}
+
 .header {
   position: fixed;
   top: 0;
