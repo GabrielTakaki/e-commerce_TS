@@ -13,4 +13,5 @@ export interface IProducts {
 export interface IContext {
   products: IProducts[];
   getProducts: () => Promise<any>;
+  postProducts: (name: string, price:number, quantity:number, description:string, image?: string) => Promise<any>;
 }

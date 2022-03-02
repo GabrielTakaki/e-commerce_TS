@@ -9,7 +9,7 @@ const ProductCard: React.FC = () => {
   }, []);
 
   const images = [
-    { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG29.png' },
+    { src: 'https://www.pngmart.com/files/21/iPhone-13-Pro-PNG-Image.png' },
     { src: 'https://www.pngmart.com/files/15/Apple-iPhone-11-PNG-Picture.png' },
     { src: 'https://www.freeiconspng.com/uploads/new-iphone-x-photo-18.png' }
   ];
@@ -20,17 +20,17 @@ const ProductCard: React.FC = () => {
   }));
 
   return (
-    <>
+    <div className="card__wrapper">
       {
         productWithImage && productWithImage.map((product, index) => index < 3 && (
-          <div key={index}>
-            <img src={ product.image.src } alt="product" />
-            <h4>{product.name}</h4>
-            <p>{product.price}</p>
+          <div key={index} className="card">
+            <img className="card__img" src={ product.image.src } alt="product" />
+            <h4 className="card__title">{product.name}</h4>
+            <p className="card__price">{product.price}</p>
           </div>
         ))
       }
-    </>
+    </div>
   );
 }
 

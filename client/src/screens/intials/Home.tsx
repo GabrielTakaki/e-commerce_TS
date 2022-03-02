@@ -19,7 +19,7 @@ const Home = () => {
   }, []);
 
   const images = [
-    { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG29.png' },
+    { src: 'https://pngimg.com/uploads/iphone_13/iphone_13_PNG9.png' },
     { src: 'https://www.pngmart.com/files/15/Apple-iPhone-11-PNG-Picture.png' },
     { src: 'https://www.freeiconspng.com/uploads/new-iphone-x-photo-18.png' }
   ];
@@ -28,9 +28,10 @@ const Home = () => {
     ...item,
     image: images[idx]
   }));
-
+  
   return (
     <>
+    {console.log(products)}
       <Header />
       <Swiper
           autoplay={{

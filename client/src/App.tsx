@@ -8,6 +8,7 @@ import Login from './screens/intials/Login';
 import Home from './screens/intials/Home';
 
 import LandingPage from './screens/LandingPage';
+import ProductCreate from './screens/admin/ProductCreate';
 
 function App() {
   return (
@@ -30,6 +31,12 @@ function App() {
       <Route path="/landing" element={
         <Products.Provider>
           <LandingPage />
+        </Products.Provider>
+      }
+      />
+            <Route path="/admin" element={
+        <Products.Provider>
+          <ProductCreate />
         </Products.Provider>
       }
       />

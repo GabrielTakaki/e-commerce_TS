@@ -306,6 +306,28 @@
   margin-right: 0;
 }
 
+.card__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  margin: 10% 0;
+}
+
+.card {
+  background-color: #fff;
+  width: 20%;
+  margin: auto 5px;
+  text-align: center;
+}
+
+.card__img {
+  width: 100%;
+}
+
 body {
   margin: 0;
   background-color: #000;

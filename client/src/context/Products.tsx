@@ -17,8 +17,23 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
     }
   }
 
+  const postProducts = async (name: string, price:number, quantity:number, description:string, image?: string) => {
+    try {
+      const response = await axios.post('http://localhost:3001/products', {
+        name,
+        price,
+        quantity,
+        description,
+        image,
+      });
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
-    <Context.Provider value={ { getProducts, products } }>
+    <Context.Provider value={ { getProducts, products, postProducts } }>
       {children}
     </Context.Provider>
   );
