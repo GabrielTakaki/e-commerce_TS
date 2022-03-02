@@ -10,7 +10,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = () => {
     login(email, password);
-    if (loginErr) {
+    if (loginErr === '') {
       navigate('/landing');
     }
   };

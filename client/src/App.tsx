@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/style.css';
 import { Routes, Route } from 'react-router-dom';
-import { Global } from './context';
+import { Global, Products } from './context';
 
 import Register from './screens/intials/Register';
 import Login from './screens/intials/Login';
@@ -13,9 +13,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={
-        <Global.Provider>
+        <Products.Provider>
           <Home />
-        </Global.Provider>
+        </Products.Provider>
       } />
       <Route path="/login" element={
         <Global.Provider>
@@ -28,7 +28,9 @@ function App() {
         </Global.Provider>
       } />
       <Route path="/landing" element={
-        <LandingPage />
+        <Products.Provider>
+          <LandingPage />
+        </Products.Provider>
       }
       />
     </Routes>

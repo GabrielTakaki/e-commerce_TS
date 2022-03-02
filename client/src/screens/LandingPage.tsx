@@ -1,8 +1,11 @@
 import React from 'react';
+import ProductCard from '../components/Products/ProductCard';
 
 const LandingPage: React.FC = () => {
   return (
-    <div>LandingPage</div>
+    <div>
+      <ProductCard />
+    </div>
   );
 }
 

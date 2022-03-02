@@ -1,13 +1,12 @@
 import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
-import { PropsContext, IUserRegister, IProducts, IContext } from '../interfaces';
+import { PropsContext, IUserRegister, IContext } from '../interfaces/context.global';
 import axios from 'axios';
 
 const Context = createContext<IContext>({} as IContext);
 
 const Provider: React.FC<PropsContext> = ({ children }) => {
   const [user, setUser] = useState<IUserRegister[]>([]);
-  const [products, setProducts] = useState<IProducts[]>([]);
 
   // Error handling
   const [registerErr, setRegisterErr] = useState({ badReq: '', conflict: '' });
@@ -39,17 +38,8 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
     }
   };
 
-  const getProducts = async () => {
-    try {
-      const response = await axios.get('http://localhost:3001/products');
-      setProducts(response.data);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   return (
-    <Context.Provider value={ { login, user, register, getProducts, products, registerErr, loginErr } }>
+    <Context.Provider value={ { login, user, register, registerErr, loginErr } }>
       {children}
     </Context.Provider>
   );

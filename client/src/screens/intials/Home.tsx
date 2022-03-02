@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import '../../styles/style.css';
-import { Global } from '../../context';
+import { Products } from '../../context';
 import Header from '../../components/Header';
 import SwiperCore, { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +11,7 @@ import 'swiper/css';
 import 'swiper/css/virtual';
 
 const Home = () => {
-  const { getProducts, products } = useContext(Global.Context);
+  const { getProducts, products } = useContext(Products.Context);
   SwiperCore.use([Autoplay])
 
   useEffect(() => {
