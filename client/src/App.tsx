@@ -7,6 +7,8 @@ import Register from './screens/intials/Register';
 import Login from './screens/intials/Login';
 import Home from './screens/intials/Home';
 
+import LandingPage from './screens/LandingPage';
+
 function App() {
   return (
     <Routes>
@@ -25,6 +27,10 @@ function App() {
           <Register />
         </Global.Provider>
       } />
+      <Route path="/landing" element={
+        <LandingPage />
+      }
+      />
     </Routes>
   );
 }

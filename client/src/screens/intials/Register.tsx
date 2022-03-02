@@ -1,37 +1,23 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Global } from '../../context';
 import { useNavigate } from 'react-router-dom';
 
 const Register: React.FC = () => {
   const [registerForm, setRegisterForm] = useState({ email: '', password: '', name: '', role: 'user' });
-  const [click, setClick] = useState(false);
-  const [infoErr, setInfoErr] = useState(false);
   const navigate = useNavigate();
-  const { register } = useContext(Global.Context);
+  const { register, registerErr } = useContext(Global.Context);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setRegisterForm({ ...registerForm, [name]: value });
   };
 
-  useEffect(() => {
+  const handleSubmit = () => {
     const { email, password, name, role } = registerForm;
-    const passwordMinLength = 6;
-    const userMinLength = 12;
-    const Patt = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
-    const validEmail = Patt.test(email)
-    const validPsw = password.length >= passwordMinLength;
-    const validName = name.length >= userMinLength;
-
-    if (click) {
-      if (!validEmail || !validPsw || !validName) {
-        setInfoErr(true);
-      } else {
-        register(email, password, role, name);
-        navigate('/login');
-      }
-    }
-  }, [registerForm, click]);
+  
+    console.log(registerErr);
+    register(email, password, role, name);
+  };
 
   return (
     <div className="container-login">
@@ -71,11 +57,19 @@ const Register: React.FC = () => {
             onChange={ handleChange }
           />
           {
-            !infoErr ? null
+            !registerErr.badReq ? null
             : <span
                 className="login__error"
               >
                 Fill in the fileds with valid data
+              </span>
+          }
+          {
+            !registerErr.conflict ? null
+            : <span
+                className="login__error"
+              >
+                Email already exists
               </span>
           }
         </label>
@@ -83,7 +77,7 @@ const Register: React.FC = () => {
           <button
             className="buttons__register"
             type="button"
-            onClick={ () => setClick(true) }
+            onClick={ () => handleSubmit() }
           >
             Register
           </button>

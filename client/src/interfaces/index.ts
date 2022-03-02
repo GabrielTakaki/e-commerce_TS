@@ -28,5 +28,6 @@ export interface IContext {
   login: (email: string, password: string) => Promise<any>;
   register: (email: string, password: string, role: string, name: string) => Promise<any>;
   getProducts: () => Promise<any>;
-  loginData: Array<''>;
+  registerErr: { conflict: string, badReq: string };
+  loginErr: string;
 }
