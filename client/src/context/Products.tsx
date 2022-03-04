@@ -25,7 +25,7 @@ const Provider: React.FC<PropsContext> = ({ children }) => {
         quantity,
         description,
         image,
-      });
+      }, { withCredentials: true });
       console.log(response);
     } catch (e) {
       console.log(e);

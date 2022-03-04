@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use(deserializeUser);
 
-app.use('/uploads', express.static(path.resolve('uploads')));
+app.use('/products', express.static(path.resolve('uploads')));
 
 app.listen(port, host, () => {
   log.info(`Server is listening on ${host}:${port}`)

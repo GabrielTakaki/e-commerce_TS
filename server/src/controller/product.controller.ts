@@ -10,14 +10,17 @@ interface MulterRequest extends Request {
 export const createProductHandler = async (req: Request, res: Response): Promise<Response>  => {
   try {
     const documentFile = (req as MulterRequest).file;
-    const { name, price, quantity, description } = req.body;
-    const newPhoto = { name, price, quantity, description, image: documentFile.path };
-    const photo = new Product(newPhoto);
-    await photo.save();
-    return res.status(201).send({ photo });
+    if (documentFile) {
+      const { name, price, quantity, description } = req.body;
+      const newPhoto = { name, price, quantity, description, image: documentFile.path };
+      const photo = new Product(newPhoto);
+      await photo.save();
+      return res.status(201).send({ photo });
+    }
+    return res.status(400).send({ message: "No file was uploaded" });
   } catch (e: any) {
     log.error(e);
-    return res.status(402).send(e.message);
+    return res.status(400).send(e.message);
   }
 };
 
